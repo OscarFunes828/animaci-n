@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOLAZO</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+        }
+
+        .fondo{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(135, 207, 235, 0.705);
+            perspective: 800px;
+        }
+
+        .Suelo{
+            transform-style: preserve-3d;
+            perspective: 200px;
+            transform: rotateX(25deg);
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .Suelo img{
+            position: absolute;
+            bottom:0px;
+            width: 100vw;
+            height: 40%;
+        }
+
+        .publico{
+            transform-style: preserve-3d;
+            perspective: 500px;
+            background: url('https://media.istockphoto.com/id/510165240/es/foto/estadio-ol%C3%ADmpico.jpg?b=1&s=612x612&w=0&k=20&c=yBnRTRD-RRg65xcd1PNaI15uwHwqLwYjTpCqZxAPQR0=') repeat-x;
+            width: 100vw;
+            height: 65vh;
+            position: absolute;
+        }
+
+        .jugador{
+            position: absolute;
+            bottom:0px;
+            left: 500px;
+            perspective: 50px;
+            width: 200px;
+            height: 300px;
+            transform-style: preserve-3d;
+            animation: patea 2s ease-out 1s 1 forwards;
+            
+        }
+
+        .jugador img{
+            transform: rotateY(180deg);
+            
+        }
+
+        @keyframes patea {
+            0%,100%{}
+            50%{
+                transform: translateX(55px) rotate(10deg);
+            }
+            60%{
+                transform: translateX(55px) rotate(0deg);
+            }
+                    
+        }
+
+        .pelota{
+            position: absolute;
+            bottom:60px;
+            left: 650px;
+            perspective: 30px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            box-shadow: 0px 0px 20px black inset;
+            transform-style: preserve-3d;
+            animation: baloon 2s ease-out 2s 1 forwards;
+        }
+
+        @keyframes baloon {
+            0%{}
+            20%{
+                transform: translateX(155px) translateY(-80px) rotate(180deg);
+            }
+            40%{
+                transform: translateX(355px) translateY(-150px) rotate(180deg);
+            }
+            60%{
+                transform: translateX(500px) translateY(-130px) rotate(180deg);
+            }
+            80%{
+                transform: translateX(650px) translateY(-110px) rotate(180deg);
+            }
+            100%{
+                transform: translateX(755px) translateY(-40px) rotate(180deg);
+            }    
+        }
+
+        .porteria{
+            position: absolute;
+            bottom:150px;
+            right: -30px;
+            perspective: 50px;
+            width: 300px;
+            height: 100px;
+            transform-style: preserve-3d;
+            overflow: visible;
+        }
+
+        .porteria img{
+            height: 80%;
+            width:80%;
+            transform: rotateY(-25deg) rotateZ(50deg);
+        }
+
+        .portero{
+            position: absolute;
+            bottom:-60px;
+            right: 100px;
+            perspective: 30px;
+            width: 200px;
+            height: 300px;
+            transform-style: preserve-3d;
+            animation: fallo 2s ease-out 2.5s 1 forwards;
+        }
+
+        @keyframes fallo{
+            0%{}
+            40%,100%{
+                transform: translateX(-170px) translateY(-130px);
+            }
+        }
+
+        .portero img{
+            transform: rotateX(5deg) rotateY(-15deg) rotateZ(35deg);
+        }
+        
+        .texto{
+            background-color: transparent;
+            font-size: 100px;
+            perspective: 0px;
+            position: absolute;
+            top:0px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+            color: gold;
+            text-shadow: 0px 0px 15px goldenrod;
+            opacity: 0;
+            animation: GOOL 1s linear 4.5s 1 forwards;
+        }
+
+        @keyframes GOOL {
+            0%{}
+            30%{
+                opacity: 0.3;
+            }
+            60%{
+                opacity: 0.6;
+            }
+            100%{
+                opacity: 1;
+            }
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="fondo">
+        <div class="texto">¡¡¡¡GOLAZO!!!!</div>
+        <div class="publico"></div>
+        <div class="Suelo"><img src="https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/238D/production/_95410190_gettyimages-488144002.jpg.webp"></div>
+    </div>
+    <div class="jugador"><img src="mbappe.png"></div>
+    <div class="pelota"></div>
+    <div class="portero"><img src="portero.png"></div>
+    <div class="porteria"><img src="porteria.png"></div>
+    
+</body>
+</html>
